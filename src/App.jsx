@@ -1,29 +1,32 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Navigate } from "react-router-dom"; 
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthProvider from './components/auth_provider';
-
+import { useAuth } from './components/auth_provider'; // Import useAuth hook
 
 import Login from './components/login';
 import Signup from './components/signup';
 import PrivateRoute from './components/protected_route';
 import Homepage from './components/home';
+import Cookies from 'js-cookie';
 
 function App() {
-  
+  const user = Cookies.get('jwt-access'); // Get user from useAuth hook
+
   return (
     <BrowserRouter>
       <AuthProvider>
-        
-        <div className="content"> {/* Add a wrapper div for content */}
+        <div className="content">
           <Routes>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/signup" element={<Signup />}></Route>
-            {/* Use ProtectedRoute for the homepage */}
+            {/* Redirect sign-in and sign-up routes if user exists */}
+            <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+            <Route path="/signup" element={user? <Navigate to="/" /> : <Signup />} />
+            
+            {/* Use PrivateRoute for protecting the homepage */}
             <Route path="/" element={<PrivateRoute />}>
               <Route index element={<Homepage />} />
             </Route>
+            
             {/* Redirect to homepage for unknown routes */}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

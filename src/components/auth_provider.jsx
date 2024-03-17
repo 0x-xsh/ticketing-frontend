@@ -71,7 +71,8 @@ const AuthProvider = ({ children }) => {
     Cookies.remove("is_fr");
 
     // Navigate to the login page
-    navigate("/login");
+    navigate("/login",);
+    location.reload();
   };
 
   // Provide token, user, loginAction, and logOut values to the context

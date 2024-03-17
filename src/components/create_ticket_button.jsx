@@ -41,6 +41,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
         setShowModal(false);
         if (response.status === 201) {
           alert('Ticket created successfully!');
+    location.reload();
+
         } else {
           throw new Error(response.data);
         }

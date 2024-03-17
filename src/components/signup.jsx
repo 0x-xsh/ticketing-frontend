@@ -106,31 +106,31 @@ const Signup = () => {
         <div className="container d-flex justify-content-center align-items-center vh-100">
             <form className="Auth-form" onSubmit={handleSubmit}>
                 <div className="Auth-form-content">
-                    <h3 className="Auth-form-title">Sign Up</h3>
+                    <h3 className="Auth-form-title">Créer un compte</h3>
                     <div className="form-group mt-3">
                         <input
                             type="text"
                             className="form-control mt-1"
-                            placeholder="First Name"
+                            placeholder="Prénom"
                             name="firstName"
                             value={input.firstName}
                             onChange={handleInputChange}
                         />
                         {errors.names && (
-                            <p className="text-danger">First and last name are mandatory</p>
+                            <p className="text-danger">Prénom/Nom sont obligatoires</p>
                         )}
                     </div>
                     <div className="form-group mt-3">
                         <input
                             type="text"
                             className="form-control mt-1"
-                            placeholder="Last Name"
+                            placeholder="Nom"
                             name="lastName"
                             value={input.lastName}
                             onChange={handleInputChange}
                         />
                         {errors.names && (
-                            <p className="text-danger">First and last name are mandatory</p>
+                            <p className="text-danger">Prénom/Nom sont obligatoires</p>
                         )}
                     </div>
                     <div className="form-group mt-3">
@@ -143,7 +143,7 @@ const Signup = () => {
                             onChange={handleInputChange}
                         />
                         {errors.englishUsername && (
-                            <p className="text-danger">Username can only contain Latin letters</p>
+                            <p className="text-danger">l'identifiant doit contenir que des alphabets</p>
                         )}
                     </div>
                     <div className="form-group mt-3">
@@ -156,23 +156,23 @@ const Signup = () => {
                             onChange={handleInputChange}
                         />
                         {errors.uppercaseLetter && (
-                            <p className="text-danger">Password must contain at least one uppercase letter</p>
+                            <p className="text-danger">le mot de passe doit contenir au moin un majiscule</p>
                         )}
                         {errors.number && (
-                            <p className="text-danger">Password must contain at least one number</p>
+                            <p className="text-danger">le mot de passe doit contenir au moin un nombre</p>
                         )}
                     </div>
                     <div className="form-group mt-3">
                         <input
                             type="password"
                             className="form-control mt-1"
-                            placeholder="Confirm Password"
+                            placeholder="Confirmer le mot de passe"
                             name="confirmPassword"
                             value={input.confirmPassword}
                             onChange={handleInputChange}
                         />
                         {errors.passwordMatch && (
-                            <p className="text-danger">Passwords do not match</p>
+                            <p className="text-danger">Les mots de passe ne correspondent pas</p>
                         )}
                     </div>
                     <div className="form-group mt-3">
@@ -203,21 +203,21 @@ const Signup = () => {
                             </label>
                         </div>
                         {errors.country && (
-                            <p className="text-danger">You must choose a country</p>
+                            <p className="text-danger">Vous Devez choisir entre DZ ou FR</p>
                         )}
                     </div>
                     
                     {loading && (
                         <div className="text-center mt-3">
                             <div className="spinner-border text-primary" role="status">
-                                <span className="visually-hidden">Loading...</span>
+                                <span className="visually-hidden">Chargement...</span>
                             </div>
                         </div>
                     )}
                     {!loading && (
                         <div className="d-grid gap-2 mt-3">
                             <button type="submit" className="btn btn-primary">
-                                Sign up
+                                Creer le Compte
                             </button>
                         </div>
                     )}
@@ -228,7 +228,7 @@ const Signup = () => {
                 )}
                     
                     <p className="forgot-password text-right mt-2">
-                        Already have an account? <Link to="/login">Sign In</Link>
+                    Vous avez déjà un compte? <Link to="/login">Se Connecter</Link>
                     </p>
                 </div>
                

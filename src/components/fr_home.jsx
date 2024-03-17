@@ -16,7 +16,7 @@ const FRHomepage = () => {
     // Define columns for the table
     const columns = [
         {
-            name: 'Title',
+            name: 'Titre',
             selector: row => row.title,
             sortable: true,
         },
@@ -31,7 +31,7 @@ const FRHomepage = () => {
             sortable: true,
         },
         {
-            name: 'State',
+            name: 'Etat',
             selector: row => row.state,
             sortable: true,
             cell: row => (
@@ -41,17 +41,17 @@ const FRHomepage = () => {
             ),
         },
         {
-            name: 'Created By',
+            name: 'Crée par',
             selector: row => row.created_by,
             sortable: true,
         },
         {
-            name: 'Assigned To',
+            name: 'Assigné',
             selector: row => row.assigned_to,
             sortable: true,
         },
         {
-            name: 'File',
+            name: 'Fichier',
             selector: row => row.file,
             sortable: true,
             cell: row => (
@@ -66,7 +66,7 @@ const FRHomepage = () => {
                     Download Attachment
                 </Button>
             </Box>
-            : 'No Attachment'
+            : 'Pas d\'attachement '
                 
             
             ),
@@ -77,7 +77,7 @@ const FRHomepage = () => {
         <Box marginTop={2}>
             <Card variant="outlined" sx={{ backgroundColor: '#f5f5f5', boxShadow: 5 }}>
                 <CardContent>
-                    <Typography variant="h6">DZ Assistant Notes:</Typography>
+                    <Typography variant="h6">Notes:</Typography>
                     <Typography>{data.notes}</Typography>
                 </CardContent>
             </Card>
@@ -134,7 +134,7 @@ const FRHomepage = () => {
                     <Box display="flex" alignItems="center">
                     <CreateTicketButton></CreateTicketButton>
                         <Typography variant="body1" style={{ marginLeft: '1rem', fontStyle: 'italic' }}>
-                            Feeling stuck? Let's create a ticket and get things moving!
+                        Vous vous sentez bloqué ? Créons un ticket pour faire avancer les choses !
                         </Typography>
                     </Box>
                 </Paper>
@@ -143,13 +143,13 @@ const FRHomepage = () => {
             <Container  style={{ marginTop: '2rem' }}>
                 <Paper elevation={3} style={{ padding: '1rem', marginBottom: '2rem' }}>
                     <Typography variant="h4" gutterBottom>
-                        Open Tickets
+                        Tickets Ouverts
                     </Typography>
                     <DataTable
                         columns={columns}
                         data={tickets.open}
                         subHeader
-                        noDataComponent="No open tickets found"
+                        noDataComponent="Aucun ticket ouvert trouvé"
                         selectableRows
                         persistTableHead
                        
@@ -157,13 +157,13 @@ const FRHomepage = () => {
                 </Paper>
                 <Paper elevation={3} style={{ padding: '1rem', marginBottom: '2rem' }}>
                     <Typography variant="h4" gutterBottom>
-                        In Progress Tickets
+                        Tickets En cours
                     </Typography>
                     <DataTable
                         columns={columns}
                         data={tickets.inProgress}
                         subHeader
-                        noDataComponent="No in progress tickets found"
+                        noDataComponent="Aucun ticket en cours trouvé"
                         selectableRows
                         persistTableHead
                      
@@ -171,13 +171,13 @@ const FRHomepage = () => {
                 </Paper>
                 <Paper elevation={3} style={{ padding: '1rem', marginBottom: '2rem' }}>
                     <Typography variant="h4" gutterBottom>
-                        Closed Tickets
+                        Tickets Fermés
                     </Typography>
                     <DataTable
                         columns={columns}
                         data={tickets.closed}
                         subHeader
-                        noDataComponent="No closed tickets found"
+                        noDataComponent="Aucun ticket fermé trouvé"
                         selectableRows
                         persistTableHead
                         expandableRows

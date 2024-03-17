@@ -65,17 +65,17 @@ const AuthProvider = ({ children }) => {
   
      
      
-        alert('Your account has been created successfully');
+        alert('Votre compte a été créé avec succès');
         navigate('/login', { replace: true });
       
     } catch (error) {
       console.error("Signup error:", error.response.data);
       if (error.response.data) {
        
-        throw new Error('Username exists');
+        throw new Error('L\'identifiant existe déja');
       } else {
         // Generic error
-        throw new Error("Signup failed");
+        throw new Error("Erreur");
       }
     }
   };

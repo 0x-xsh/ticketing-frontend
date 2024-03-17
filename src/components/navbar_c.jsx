@@ -71,7 +71,7 @@ const NavbarComponent = () => {
                 <Nav className="mx-auto" style={{ width: '100%' }}>
                     <div className="d-flex justify-content-around align-items-center w-100"> {/* Added container for responsive layout */}
                         <div> {/* Container for welcome message */}
-                            <Typography variant="h4" gutterBottom>Welcome, {user.first_name}</Typography>
+                            <Typography variant="h4" gutterBottom>Bonjour, {user.first_name}</Typography>
                         </div>
                         {user.is_fr && (
                             <Dropdown className="notifications-dropdown" onToggle={handleToggleNotifications}>
@@ -87,7 +87,7 @@ const NavbarComponent = () => {
                                 </Dropdown.Menu>
                             </Dropdown>
                         )}
-                        <Button onClick={logout} variant="outline-danger">Logout</Button>
+                        <Button onClick={logout} variant="outline-danger">Se Deconnecter</Button>
                     </div>
                 </Nav>
             </Navbar.Collapse>

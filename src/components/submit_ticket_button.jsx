@@ -88,7 +88,7 @@ const SubmitTicketButton = ({ onSuccess, ticketId }) => {
 
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Submit Ticket</Modal.Title>
+                    <Modal.Title>Envoyer Ticket</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -104,14 +104,14 @@ const SubmitTicketButton = ({ onSuccess, ticketId }) => {
                             <Form.Control.Feedback type="invalid">{notesError}</Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group controlId="file">
-                            <Form.Label>File:</Form.Label>
+                            <Form.Label>Fichier ZIP:</Form.Label>
                             <Form.Control type="file" onChange={handleFileChange} isInvalid={!!fileError} />
                             <Form.Control.Feedback type="invalid">{fileError}</Form.Control.Feedback>
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={handleSubmit}>Submit</Button>
+                    <Button onClick={handleSubmit}>Envoyer</Button>
                 </Modal.Footer>
             </Modal>
         </>

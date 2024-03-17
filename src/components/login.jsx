@@ -39,12 +39,12 @@ const Login = () => {
         <div className="container d-flex justify-content-center align-items-center vh-100">
             <form className="Auth-form" onSubmit={handleSubmit}>
                 <div className="Auth-form-content">
-                    <h3 className="Auth-form-title">Sign In</h3>
+                    <h3 className="Auth-form-title">Connexion</h3>
                     <div className="form-group mt-3">
                         <input
                             type="text"
                             className="form-control mt-1"
-                            placeholder="Username"
+                            placeholder="Identifiant"
                             name="username"
                             value={input.username}
                             onChange={handleInputChange}
@@ -55,7 +55,7 @@ const Login = () => {
                         <input
                             type="password"
                             className="form-control mt-1"
-                            placeholder="Password"
+                            placeholder="Mot de Passe"
                             name="password"
                             value={input.password}
                             onChange={handleInputChange}
@@ -70,19 +70,19 @@ const Login = () => {
                     {loading && (
                         <div className="text-center mt-3">
                             <div className="spinner-border text-primary" role="status">
-                                <span className="visually-hidden">Loading...</span>
+                                <span className="visually-hidden">Chargement...</span>
                             </div>
                         </div>
                     )}
                     {!loading && (
                         <div className="d-grid gap-2 mt-3">
                             <button type="submit" className="btn btn-primary">
-                                Sign in
+                                Se Connecter
                             </button>
                         </div>
                     )}
                     <p className="forgot-password text-right mt-2">
-                        Don't have an account? <Link to="/signup">Sign Up</Link>
+                    <Link to="/signup">je n'ai pas de compte</Link>
                     </p>
                 </div>
             </form>

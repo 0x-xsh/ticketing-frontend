@@ -41,7 +41,7 @@ const DZHomepage = () => {
 
         } catch (error) {
             console.error('Error assigning ticket:', error);
-            alert('Failed to assign ticket');
+            alert('Echec : prendre un ticket');
         }
     };
 
@@ -52,7 +52,7 @@ const DZHomepage = () => {
 
     const columns = [
         {
-            name: 'Title',
+            name: 'Titre',
             selector: row => row.description,
 
             sortable: true,
@@ -73,7 +73,7 @@ const DZHomepage = () => {
             name: 'Action',
             cell: (row) => (
                 row.state === 'open' ?
-                    <Button onClick={() => assignTicket(row.id)}>Assign</Button> :
+                    <Button onClick={() => assignTicket(row.id)}>Prendre</Button> :
                     row.state === 'in_progress' ?
                         <SubmitTicketButton onSuccess={onSuccess} ticketId={row.id}></SubmitTicketButton> :
                         null
@@ -90,9 +90,15 @@ const DZHomepage = () => {
                     {/* Your create ticket form can go here */}
                     <Box display="flex" alignItems="center" >
 
-                        <Typography variant="body1" style={{ marginLeft: '1rem', fontStyle: 'italic' }}>
-                            Check your tickets immediately to start the work!
-                        </Typography>
+                    <Typography variant="body1" style={{ marginLeft: '1rem', fontStyle: 'italic' }}>
+    Vérifiez immédiatement vos Taches pour commencer!
+    <ul>
+        <li>"Fermé" : Signifie qu'un problème ou une demande a été résolu</li>
+        <li>"Ouvert" : Indique qu'un problème ou une demande est en attente de traitement ou de résolution.</li>
+        <li>"En cours" : Indique qu'un problème ou une demande est actuellement en train d'être traité ou travaillé par l'équipe de support.</li>
+    </ul>
+</Typography>
+
                     </Box>
                 </Paper>
             </Container>
@@ -100,12 +106,12 @@ const DZHomepage = () => {
             <Container style={{ marginTop: '2rem' }}>
                 <Paper elevation={3} style={{ padding: '1rem', marginBottom: '2rem' }}>
                     <Typography variant="h4" gutterBottom>
-                        Open Tickets
+                        Tickets Ouverts
                     </Typography>
                     <DataTable
                     columns={columns}
                     data={openTickets}
-                    noDataComponent="No open tickets found"
+                    noDataComponent="Aucun ticket ouvert trouvé"
                 />
 
                 </Paper>
@@ -113,12 +119,12 @@ const DZHomepage = () => {
 
                 <Paper elevation={3} style={{ padding: '1rem', marginBottom: '2rem' }}>
                     <Typography variant="h4" gutterBottom>
-                        In progress Tickets
+                        Tickets En cours
                     </Typography>
                     <DataTable
                     columns={columns}
                     data={inProgressTickets}
-                    noDataComponent="No in-progress tickets found"
+                    noDataComponent="Aucun ticket en cours trouvé"
                 />
                 </Paper>
                
@@ -126,12 +132,12 @@ const DZHomepage = () => {
 
                 <Paper elevation={3} style={{ padding: '1rem', marginBottom: '2rem' }}>
                     <Typography variant="h4" gutterBottom>
-                        Closed tickets
+                        Tickets Fermés
                     </Typography>
                     <DataTable
                     columns={columns}
                     data={closedTickets}
-                    noDataComponent="No closed tickets found"
+                    noDataComponent="Aucun ticket fermé trouvé"
                 />
                 </Paper>
 

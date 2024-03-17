@@ -63,7 +63,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
           <Modal.Body>
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="title">
-                <Form.Label>Intitulé du ticket:</Form.Label>
+                <Form.Label>Intitulé du ticket</Form.Label>
                 <Form.Control
                   type="text"
                   name="title"
@@ -73,7 +73,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
                 />
               </Form.Group>
               <Form.Group controlId="description">
-                <Form.Label>Description du travail demandé:</Form.Label>
+                <Form.Label>Description du travail demandé</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
@@ -84,11 +84,15 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
                 />
                 
               </Form.Group>
+              <div>
+              <Form.Label>Deadline</Form.Label>
+              <br></br>
+              
               <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
             sx = {{marginTop : '10px', marginBottom : '10px'}}
              
-             format="DD-MM-YYYY"
+             format="YYYY-MM-DD"
   value={ticketData.deadline}
   onChange={(date) => setTicketData((prevData) => ({
     ...prevData,
@@ -98,6 +102,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
   views={['year', 'month', 'day']}
 />
             </LocalizationProvider>
+              </div>
 
               {/* Add other form fields here */}
             </Form>

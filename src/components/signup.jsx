@@ -99,14 +99,7 @@ const Signup = () => {
             if (!response.ok) {
                 throw Error(responseData.error)
             } else {
-                toast.success("You've successfully created an account", {
-                    position: "top-center",
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: false,
-                });
+               alert('Your account has been created successfully')
                 navigate('/login', { replace: true });
             }
         } catch (error) {

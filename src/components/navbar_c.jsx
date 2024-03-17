@@ -39,7 +39,7 @@ const NavbarComponent = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mx-auto" style={{ width: '100%' }}>
-                    <div className="d-flex justify-content-between align-items-center w-100"> {/* Added container for responsive layout */}
+                    <div className="d-flex justify-content-around align-items-center w-100"> {/* Added container for responsive layout */}
                         <div> {/* Container for welcome message */}
                             <Typography variant="h4" gutterBottom>Welcome, {user.first_name}</Typography>
                         </div>

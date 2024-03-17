@@ -11,6 +11,7 @@ import PrivateRoute from './components/protected_route';
 import Homepage from './components/home';
 
 function App() {
+  
   return (
     <BrowserRouter>
       <AuthProvider>

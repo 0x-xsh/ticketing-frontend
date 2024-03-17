@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./auth_provider";
 
@@ -9,7 +9,12 @@ const Login = () => {
         password: "",
     });
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false); // New loading state
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        // const baseURL = process.env.API_BASE_URL;
+        // console.log("Base URL:", baseURL);
+    }, []); // Run only once on component mount
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -22,7 +27,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
-        setLoading(true); // Set loading state to true while awaiting response
+        setLoading(true);
 
         try {
             await auth.loginAction(input);
@@ -30,7 +35,7 @@ const Login = () => {
             console.log(error);
             setError(error.message);
         } finally {
-            setLoading(false); // Reset loading state after response is received
+            setLoading(false);
         }
     };
 

@@ -3,12 +3,14 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 // Import useHistory from React Router
-const baseURL = process.env.API_BASE_URL;
+
+
+
 
 
 
 const axiosInstance = axios.create({
-  baseURL: `${baseURL}/api/`, 
+  baseURL: `https://ticket-backend-8lil.onrender.com/api/`, 
   
   
   // Adjust base URL as per your backend API

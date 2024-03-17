@@ -1,0 +1,99 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left; /* Adjust to left alignment */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.container {
+  width: 100%;
+}
+
+/* Navbar styles */
+.navbar {
+  width: 100%; /* Ensure full width */
+  text-align: center; /* Center align the navbar */
+}
+
+.navbar-nav {
+  margin: 0 auto; /* Center align the navbar items */
+}
+
+.Auth-form {
+  width: 400px; /* Adjust the width as needed */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  margin: 0 auto; /* Center the form */
+}
+
+.Auth-form-content {
+  max-width: 100%;
+}
+
+.Auth-form-title {
+  text-align: center;
+}
+
+.forgot-password {
+  text-align: right;
+}
+.notifications-container {
+  width: 300px;
+  padding: 10px;
+}
+
+.notifications-header {
+  margin-bottom: 10px;
+}
+
+.notification-card {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.notification-text {
+  margin: 0;
+}

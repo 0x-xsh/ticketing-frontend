@@ -6,7 +6,7 @@ import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications'; /
 import axiosInstance from '../axios_config';
 
 const NavbarComponent = () => {
-    const { logOut, user } = useAuth();
+    const { signout, user } = useAuth();
     const [showNotifications, setShowNotifications] = useState(false);
     const [notifications, setNotifications] = useState([]);
 
@@ -31,7 +31,7 @@ const NavbarComponent = () => {
     };
 
     const logout = () => {
-        logOut();
+        signout();
     };
 
     return (

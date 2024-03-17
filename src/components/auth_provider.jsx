@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   // Function to handle login action
-  const loginAction = async (data) => {
+  const signin = async (data) => {
     try {
       const response = await axiosInstance.post("signin", data);
       const responseData = await response.data;
@@ -56,10 +56,32 @@ const AuthProvider = ({ children }) => {
       }
     }
   };
+  const signup= async (body) => {
+
+    console.log('signupppp');
+    try {
+      const response = await axiosInstance.post("signup", body);
+      const responseData = await response.data;
   
+     
+     
+        alert('Your account has been created successfully');
+        navigate('/login', { replace: true });
+      
+    } catch (error) {
+      console.error("Signup error:", error.response.data);
+      if (error.response.data) {
+       
+        throw new Error('Username exists');
+      } else {
+        // Generic error
+        throw new Error("Signup failed");
+      }
+    }
+  };
 
   // Function to handle logout
-  const logOut = () => {
+  const signout = () => {
     // Clear user and token states
     setUser(null);
     setToken("");
@@ -77,7 +99,7 @@ const AuthProvider = ({ children }) => {
 
   // Provide token, user, loginAction, and logOut values to the context
   return (
-    <AuthContext.Provider value={{ token, user, loginAction, logOut }}>
+    <AuthContext.Provider value={{ token, user, signin, signup, signout }}>
       {children}
     </AuthContext.Provider>
   );

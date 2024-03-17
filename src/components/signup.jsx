@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "./auth_provider";
+
 
 const Signup = () => {
+    const auth = useAuth();
     let navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
     const [input, setInput] = useState({
         firstName: "",
         lastName: "",
@@ -25,6 +27,7 @@ const Signup = () => {
         names: false,
     });
     const [ApiError, setApiError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -50,6 +53,7 @@ const Signup = () => {
     };
 
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
         setApiError("");
         setErrors({
@@ -74,8 +78,8 @@ const Signup = () => {
         ) {
             return;
         }
-
-        setLoading(true);
+        
+        
 
         const body = {
             'first_name': input.firstName,
@@ -85,24 +89,13 @@ const Signup = () => {
             'is_fr': input.country === "FR",
             'is_dz': input.country === "DZ",
         }
-
+        setLoading(true);
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/signup", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(body),
-            });
-            const responseData = await response.json();
-            console.log(responseData);
-            if (!response.ok) {
-                throw Error(responseData.error)
-            } else {
-               alert('Your account has been created successfully')
-                navigate('/login', { replace: true });
-            }
+
+            
+           await auth.signup(body);
         } catch (error) {
+            
             setApiError(error.message)
         } finally {
             setLoading(false);
@@ -213,40 +206,32 @@ const Signup = () => {
                             <p className="text-danger">You must choose a country</p>
                         )}
                     </div>
-                    <div className="d-grid gap-2 mt-3">
-                        {loading ? (
-                            <button className="btn btn-primary" type="button" disabled>
-                                <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                                Loading...
-                            </button>
-                        ) : (
+                    
+                    {loading && (
+                        <div className="text-center mt-3">
+                            <div className="spinner-border text-primary" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    )}
+                    {!loading && (
+                        <div className="d-grid gap-2 mt-3">
                             <button type="submit" className="btn btn-primary">
                                 Submit
                             </button>
-                        )}
-                    </div>
-                    <ToastContainer
-                        transition={Bounce}
-                        position="top-center"
-                        autoClose={5000}
-                        hideProgressBar={false}
-                        newestOnTop={false}
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        draggable
-                        pauseOnHover
-                        theme="light"
-                    />
-                    <p className="forgot-password text-right mt-2">
-                        Already have an account? <Link to="/login">Sign In</Link>
-                    </p>
-                </div>
-                {ApiError && (
+                        </div>
+                    )}
+                     {ApiError && (
                     <div className="alert alert-danger mt-3" role="alert">
                         {ApiError}
                     </div>
                 )}
+                    
+                    <p className="forgot-password text-right mt-2">
+                        Already have an account? <Link to="/login">Sign In</Link>
+                    </p>
+                </div>
+               
             </form>
         </div>
     );

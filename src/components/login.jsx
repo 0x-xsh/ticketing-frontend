@@ -11,11 +11,7 @@ const Login = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        // const baseURL = process.env.API_BASE_URL;
-        // console.log("Base URL:", baseURL);
-    }, []); // Run only once on component mount
-
+    
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setInput((prev) => ({
@@ -30,7 +26,7 @@ const Login = () => {
         setLoading(true);
 
         try {
-            await auth.loginAction(input);
+            await auth.signin(input);
         } catch (error) {
             console.log(error);
             setError(error.message);

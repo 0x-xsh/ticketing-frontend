@@ -19,8 +19,8 @@ function App() {
         <div className="content">
           <Routes>
             {/* Redirect sign-in and sign-up routes if user exists */}
-            <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-            <Route path="/signup" element={user? <Navigate to="/" /> : <Signup />} />
+            <Route path="/login" element={user ? <Homepage/>: <Login />} />
+            <Route path="/signup" element={user? <Homepage/> : <Signup />} />
             
             {/* Use PrivateRoute for protecting the homepage */}
             <Route path="/" element={<PrivateRoute />}>
